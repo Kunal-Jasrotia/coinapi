@@ -6,7 +6,6 @@ const coinModel = new mongoose.Schema({
             exchange_id: {
                 type: String,
                 required: true,
-                unique: true,
             },
             icon: {
                 type: String,

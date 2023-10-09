@@ -24,6 +24,8 @@ router.get('/storeInDb', async (req: Request, res: Response) => {
         let storeCoinData = await Coin.create(data)
         res.status(200).json(storeCoinData)
     } catch (error) {
+        console.log(error);
+
         res.status(400).json(error)
     }
 })

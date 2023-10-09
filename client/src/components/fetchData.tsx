@@ -1,15 +1,38 @@
-import React from 'react'
 import { get } from '../misc/apiCall'
-
+import { Button } from '@chakra-ui/react'
+import { useToast } from '@chakra-ui/react'
 export const FetchData = () => {
-    const fetchNewData = async() => {
+    const toast = useToast()
+    const fetchNewData = async (): Promise<void> => {
         let coindata = await get('fetchData/storeInDb')
-        console.log(coindata)
+        if (coindata) {
+            toast({
+                title: 'New Data Fetched',
+                status: 'success',
+                duration: 9000,
+                isClosable: true,
+                position: "top-right"
+            })
+        } else {
+            toast({
+                title: 'Something went wrong!!',
+                status: 'error',
+                duration: 9000,
+                isClosable: true,
+                position: "top-right"
+            })
+        }
     }
+
     return (
-        <button onClick={fetchNewData}>
-            Fetch
-        </button>
+        <Button
+            colorScheme='blue'
+            onClick={fetchNewData}
+            float={"right"}
+            margin={"10px"}
+        >
+            Fetch New Data
+        </Button>
     )
 }
 
