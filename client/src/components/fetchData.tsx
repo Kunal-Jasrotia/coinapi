@@ -13,6 +13,9 @@ export const FetchData = () => {
                 isClosable: true,
                 position: "top-right"
             })
+            setTimeout(() => {
+                window.location.reload()
+            }, 1000);
         } else {
             toast({
                 title: 'Something went wrong!!',
@@ -28,7 +31,6 @@ export const FetchData = () => {
         <Button
             colorScheme='blue'
             onClick={fetchNewData}
-            float={"right"}
             margin={"10px"}
         >
             Fetch New Data

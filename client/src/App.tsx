@@ -14,8 +14,7 @@ function App() {
           <FetchData />
         </div>
         <CoinData />
-        
-
+  
       </ChakraProvider>
     </ThemeProvider>
   );
