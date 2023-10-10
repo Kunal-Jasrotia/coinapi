@@ -3,6 +3,7 @@ import express from "express"
 import mongoose from 'mongoose';
 import cors from 'cors';
 import { router as getDataRouter } from './routes/getData'
+import { router as coinRoute } from './routes/coinData'
 
 const app = express();
 const corsOptions = {
@@ -14,6 +15,7 @@ const corsOptions = {
 app.use(cors(corsOptions));
 
 app.use('/fetchData', getDataRouter);
+app.use('/coin', coinRoute)
 
 app.listen(process.env.PORT || 5000, () => {
     console.log(`Server started on port ${process.env.PORT || 5000}`);

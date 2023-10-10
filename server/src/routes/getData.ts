@@ -1,6 +1,7 @@
 import express, { Request, Response } from 'express'
 import { getCoinData, getCoinIcons } from '../misc/fetchData'
 import { Coin } from '../models/coinModel'
+
 export const router = express.Router()
 
 router.get('/storeInDb', async (req: Request, res: Response) => {
